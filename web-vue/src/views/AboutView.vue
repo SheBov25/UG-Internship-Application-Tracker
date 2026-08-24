@@ -1,0 +1,1 @@
+<template><div class="card"><h2>About this starter project</h2><p>This application is deliberately incomplete. Extend it with your own theme, features, validation, reports and domain rules.</p></div></template>

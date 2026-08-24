@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="gy.ug.ite2200.controller.RequestController">
+  <top><Label text="Campus Service Request Manager" style="-fx-font-size: 24px; -fx-font-weight: bold;"><BorderPane.margin><Insets top="16" right="16" bottom="8" left="16"/></BorderPane.margin></Label></top>
+  <center><TableView fx:id="requestTable"><columns>
+    <TableColumn fx:id="idColumn" text="ID" prefWidth="60"/><TableColumn fx:id="titleColumn" text="Title" prefWidth="260"/>
+    <TableColumn fx:id="categoryColumn" text="Category" prefWidth="160"/><TableColumn fx:id="statusColumn" text="Status" prefWidth="140"/>
+  </columns></TableView></center>
+  <right><VBox spacing="10" prefWidth="280"><padding><Insets top="10" right="16" bottom="10" left="16"/></padding>
+    <Label text="New Request" style="-fx-font-size: 18px; -fx-font-weight: bold;"/><TextField fx:id="titleField" promptText="Title"/>
+    <TextField fx:id="categoryField" promptText="Category"/><TextArea fx:id="descriptionArea" promptText="Description" prefRowCount="6" wrapText="true"/>
+    <Button text="Add Request" onAction="#handleAdd" maxWidth="Infinity"/><Separator/>
+    <Button text="Mark Selected Resolved" onAction="#handleResolve" maxWidth="Infinity"/><Button text="Delete Selected" onAction="#handleDelete" maxWidth="Infinity"/>
+    <Label fx:id="messageLabel" wrapText="true"/>
+  </VBox></right>
+</BorderPane>

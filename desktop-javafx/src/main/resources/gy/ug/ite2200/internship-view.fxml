@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gy.ug.ite2200.controller.InternshipApplicationController">
+
+    <top>
+        <VBox spacing="12">
+
+            <padding>
+                <Insets top="16" right="16" bottom="10" left="16"/>
+            </padding>
+
+            <VBox spacing="4">
+
+                <Label text="UG Internship Application Tracker"
+                       styleClass="header-title"/>
+
+                <Label text="Manage and monitor your internship applications"
+                       styleClass="header-subtitle"/>
+
+            </VBox>
+
+            <HBox spacing="12">
+
+                <VBox spacing="4"
+                      alignment="CENTER"
+                      prefWidth="150"
+                      styleClass="dashboard-card">
+
+                    <Label text="Total Applications"
+                           style="-fx-font-weight: bold;"/>
+
+                    <Label fx:id="totalApplicationsLabel"
+                           text="0"
+                           styleClass="dashboard-number"/>
+                </VBox>
+
+                <VBox spacing="4"
+                      alignment="CENTER"
+                      prefWidth="130"
+                      styleClass="dashboard-card">
+
+                    <Label text="Applied"
+                           style="-fx-font-weight: bold;"/>
+
+                    <Label fx:id="appliedCountLabel"
+                           text="0"
+                           styleClass="dashboard-number"/>
+                </VBox>
+
+                <VBox spacing="4"
+                      alignment="CENTER"
+                      prefWidth="130"
+                      styleClass="dashboard-card">
+
+                    <Label text="Interviews"
+                           style="-fx-font-weight: bold;"/>
+
+                    <Label fx:id="interviewCountLabel"
+                           text="0"
+                           styleClass="dashboard-number"/>
+                </VBox>
+
+                <VBox spacing="4"
+                      alignment="CENTER"
+                      prefWidth="130"
+                      styleClass="dashboard-card">
+
+                    <Label text="Offers"
+                           style="-fx-font-weight: bold;"/>
+
+                    <Label fx:id="offeredCountLabel"
+                           text="0"
+                           styleClass="dashboard-number"/>
+                </VBox>
+
+                <VBox spacing="4"
+                      alignment="CENTER"
+                      prefWidth="150"
+                      styleClass="dashboard-card">
+
+                    <Label text="High Priority"
+                           style="-fx-font-weight: bold;"/>
+
+                    <Label fx:id="highPriorityCountLabel"
+                           text="0"
+                           styleClass="dashboard-number"/>
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="8">
+
+            <padding>
+                <Insets top="5" right="5" bottom="10" left="16"/>
+            </padding>
+
+            <Label text="Applications"
+                   styleClass="section-title"/>
+
+            <HBox spacing="8"
+                  styleClass="search-bar">
+
+                <TextField fx:id="searchField"
+                           promptText="Search company or position"
+                           prefWidth="220"/>
+
+                <ComboBox fx:id="filterStatusComboBox"
+                          promptText="Filter by status"
+                          prefWidth="150"/>
+
+                <ComboBox fx:id="filterPriorityComboBox"
+                          promptText="Priority"
+                          prefWidth="120"/>
+
+                <ComboBox fx:id="sortComboBox"
+                          promptText="Sort by"
+                          prefWidth="140"/>
+
+            </HBox>
+
+            <TableView fx:id="applicationTable"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="idColumn"
+                                 text="ID"
+                                 prefWidth="55"/>
+
+                    <TableColumn fx:id="companyColumn"
+                                 text="Company"
+                                 prefWidth="180"/>
+
+                    <TableColumn fx:id="positionColumn"
+                                 text="Position"
+                                 prefWidth="220"/>
+
+                    <TableColumn fx:id="statusColumn"
+                                 text="Status"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="priorityColumn"
+                                 text="Priority"
+                                 prefWidth="100"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+    </center>
+
+    <right>
+        <ScrollPane fitToWidth="true"
+                    prefWidth="330">
+
+            <content>
+                <VBox spacing="9"
+                      styleClass="form-panel">
+
+                    <padding>
+                        <Insets top="10" right="16" bottom="16" left="16"/>
+                    </padding>
+
+                    <Label text="Internship Application"
+                           styleClass="section-title"/>
+
+                    <Label text="Company Name"/>
+                    <TextField fx:id="companyField"
+                               promptText="e.g. GTT"/>
+
+                    <Label text="Position Title"/>
+                    <TextField fx:id="positionField"
+                               promptText="e.g. Software Development Intern"/>
+
+                    <Label text="Category"/>
+                    <ComboBox fx:id="categoryComboBox"
+                              promptText="Select category"
+                              maxWidth="Infinity"/>
+
+                    <Label text="Application Date"/>
+                    <DatePicker fx:id="applicationDatePicker"
+                                maxWidth="Infinity"/>
+
+                    <Label text="Closing Date"/>
+                    <DatePicker fx:id="closingDatePicker"
+                                maxWidth="Infinity"/>
+
+                    <Label text="Status"/>
+                    <ComboBox fx:id="statusComboBox"
+                              promptText="Select status"
+                              maxWidth="Infinity"/>
+
+                    <Label text="Contact Person"/>
+                    <TextField fx:id="contactPersonField"
+                               promptText="Optional"/>
+
+                    <Label text="Contact Email"/>
+                    <TextField fx:id="contactEmailField"
+                               promptText="Optional"/>
+
+                    <Label text="Interview Date"/>
+                    <DatePicker fx:id="interviewDatePicker"
+                                maxWidth="Infinity"/>
+
+                    <Label text="Notes"/>
+                    <TextArea fx:id="notesArea"
+                              promptText="Additional information"
+                              prefRowCount="4"
+                              wrapText="true"/>
+
+                    <Label text="Status History"
+                           style="-fx-font-weight: bold;"/>
+
+                    <ListView fx:id="statusHistoryListView"
+                              prefHeight="120"/>
+
+                    <Button text="Add Application"
+                            onAction="#handleAddApplication"
+                            maxWidth="Infinity"
+                            styleClass="primary-button"/>
+
+                    <Button text="Update Application"
+                            onAction="#handleUpdateApplication"
+                            maxWidth="Infinity"
+                            styleClass="update-button"/>
+
+                    <Separator/>
+
+                    <Button text="Delete Selected Application"
+                            onAction="#handleDeleteApplication"
+                            maxWidth="Infinity"
+                            styleClass="delete-button"/>
+
+                    <Label fx:id="messageLabel"
+                           wrapText="true"
+                           styleClass="feedback-label"/>
+
+                </VBox>
+            </content>
+
+        </ScrollPane>
+    </right>
+
+</BorderPane>
